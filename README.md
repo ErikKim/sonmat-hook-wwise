@@ -2,7 +2,7 @@
 
 A part of 손맛 햅틱 / Sonmat Haptics (`sonmat`): dshaptics_wwise.dll.
 
-Hook for games that play their sound through Audiokinetic Wwise inside an Unreal Engine exe (Black Myth: Wukong): AK::SoundEngine::PostEvent / SetSwitch found by byte patterns in sigs.txt beside the DLL (the game's own, put there by the app), one line per event.
+Hook for games that play their sound through Audiokinetic Wwise inside an Unreal Engine exe (Black Myth: Wukong): AK::SoundEngine::PostEvent / SetSwitch found by byte patterns in sigs.txt beside the DLL (the game's own, put there by the app), one line per event. With a `SetPosition` pattern (and `AddDefaultListener` / `SetDefaultListeners`) it also writes where the event's object is (`wpos:`) and where the listener is and faces (`wlis:`), only next to events.
 
 The app does not carry this in its installer for good: it fetches the release zip that `sonmat-games/parts.json` names
 (address + SHA-256) into `<app>/parts/hook-wwise/` when a game needs it (`sonmat/tools/partfetch.py`). A change here reaches
